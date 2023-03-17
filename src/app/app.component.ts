@@ -3,8 +3,10 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  // template: `<h1>Hello world from inline template</h1>
+  //   <p>Angular is awesome!</p> `,
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'hotelinventoryapp';
+  title = 'Hotel Inventory App';
 }
