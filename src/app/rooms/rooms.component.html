@@ -21,6 +21,7 @@
 <div *ngIf="rooms && rooms?.availableRooms">
   <hinv-rooms-list
     [rooms]="roomList"
+    [title]="title"
     (selectedRoom)="selectRoomParent($event)"
   ></hinv-rooms-list>
 </div>

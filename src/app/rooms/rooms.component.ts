@@ -18,6 +18,7 @@ export class RoomsComponent implements OnInit {
   selectedRoom!: RoomList;
 
   roomList: RoomList[] = [];
+  title = 'Room List';
 
   constructor() {}
 
@@ -61,6 +62,7 @@ export class RoomsComponent implements OnInit {
 
   toggle() {
     this.hideRooms = !this.hideRooms;
+    this.title = 'Rooms Available';
   }
 
   selectRoomParent(room: RoomList) {
