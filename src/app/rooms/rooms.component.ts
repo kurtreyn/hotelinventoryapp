@@ -63,7 +63,23 @@ export class RoomsComponent implements OnInit {
     this.hideRooms = !this.hideRooms;
   }
 
-  selectRoom(room: RoomList) {
+  selectRoomParent(room: RoomList) {
     this.selectedRoom = room;
+  }
+
+  addRoom() {
+    const room: RoomList = {
+      roomNumber: 4,
+      roomType: 'Deluxe Suite',
+      amenities: 'AC, WiFi, TV, Bathroom, Kitchen',
+      price: 500,
+      photos:
+        'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8aG90ZWwlMjByb29tfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
+      checkinTime: new Date('11-Nov-2021'),
+      checkoutTime: new Date('12-Nov-2021'),
+      rating: 4.5,
+    };
+    // this.roomList.push(room);
+    this.roomList = [...this.roomList, room];
   }
 }
