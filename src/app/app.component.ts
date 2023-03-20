@@ -3,7 +3,12 @@ import {
   ViewChild,
   ViewContainerRef,
   AfterViewInit,
+  ElementRef,
+  OnInit,
+  ViewChildren,
+  QueryList,
 } from '@angular/core';
+import { HeaderComponent } from './header/header.component';
 import { RoomsComponent } from './rooms/rooms.component';
 
 @Component({
@@ -13,14 +18,19 @@ import { RoomsComponent } from './rooms/rooms.component';
   //   <p>Angular is awesome!</p> `,
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent implements AfterViewInit, OnInit {
   title = 'Hotel Inventory App';
   role = 'user';
 
   @ViewChild('user', { read: ViewContainerRef }) vcr!: ViewContainerRef;
+  @ViewChild('name', { static: true }) name!: ElementRef;
 
   ngAfterViewInit() {
-    const componentRef = this.vcr.createComponent(RoomsComponent);
-    componentRef.instance.numberOfRooms = 50;
+    // const componentRef = this.vcr.createComponent(RoomsComponent);
+    // componentRef.instance.numberOfRooms = 50;
+  }
+
+  ngOnInit(): void {
+    this.name.nativeElement.innerText = 'Hilton Hotels';
   }
 }
