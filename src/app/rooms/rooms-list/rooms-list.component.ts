@@ -7,6 +7,7 @@ import {
   ChangeDetectionStrategy,
   OnChanges,
   SimpleChanges,
+  OnDestroy,
 } from '@angular/core';
 import { RoomList } from '../rooms';
 
@@ -34,5 +35,9 @@ export class RoomsListComponent implements OnInit, OnChanges {
 
   selectRoomChild(room: RoomList) {
     this.selectedRoom.emit(room);
+  }
+
+  ngOnDestroy(): void {
+    console.log('on destroy is called');
   }
 }
