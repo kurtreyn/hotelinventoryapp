@@ -12,6 +12,7 @@ import {
 } from '@angular/core';
 import { Room, RoomList } from './rooms';
 import { HeaderComponent } from '../header/header.component';
+import { RoomsService } from './service/rooms.service';
 
 @Component({
   selector: 'hinv-rooms',
@@ -40,45 +41,11 @@ export class RoomsComponent
   @ViewChildren(HeaderComponent)
   headerChildrenComponent!: QueryList<HeaderComponent>;
 
-  constructor() {}
+  constructor(private roomsService: RoomsService) {}
 
   ngOnInit(): void {
     // console.log(this.headerComponent);
-    this.roomList = [
-      {
-        roomNumber: 1,
-        roomType: 'Deluxe Room',
-        amenities: 'AC, WiFi, TV, Bathroom, Kitchen',
-        price: 500,
-        photos:
-          'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aG90ZWwlMjByb29tfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
-        checkinTime: new Date('11-Nov-2021'),
-        checkoutTime: new Date('12-Nov-2021'),
-        rating: 4.5,
-      },
-      {
-        roomNumber: 2,
-        roomType: 'Deluxe Room',
-        amenities: 'AC, WiFi, TV, Bathroom, Kitchen',
-        price: 1000,
-        photos:
-          'https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8aG90ZWwlMjByb29tfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
-        checkinTime: new Date('11-Nov-2021'),
-        checkoutTime: new Date('12-Nov-2021'),
-        rating: 3.4,
-      },
-      {
-        roomNumber: 3,
-        roomType: 'Private Suite',
-        amenities: 'AC, WiFi, TV, Bathroom, Kitchen',
-        price: 15000,
-        photos:
-          'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8aG90ZWwlMjByb29tfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
-        checkinTime: new Date('11-Nov-2021'),
-        checkoutTime: new Date('12-Nov-2021'),
-        rating: 2.6,
-      },
-    ];
+    this.roomList = this.roomsService.getRooms();
   }
 
   ngDoCheck(): void {
